@@ -1,10 +1,12 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
+import { ApiTags } from '@nestjs/swagger';
 import { Request } from 'express';
-import { CreatePostDto } from './dto/createPostDto';
-import { UpdatePostDto } from './dto/updatePostDto';
+import { CreatePostDto } from './dto/createPost.dto';
+import { UpdatePostDto } from './dto/updatePost.dto';
 import { PostService } from './post.service';
 
+@ApiTags("Posts")
 @Controller('posts')
 export class PostController {
     constructor(private readonly postService: PostService){}
